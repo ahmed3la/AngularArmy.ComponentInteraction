@@ -1,0 +1,19 @@
+<p>item works!</p>
+<input type="text" (keyup)="inputItemInParent = $event.target.value" />
+<app-item-details
+  [itemTileInChailed]="inputItemInParent"
+  #myChiled
+  (eventFromChiled)="dataFromChiled = $event"
+></app-item-details>
+
+Data From Chiled IS: {{ dataFromChiled }}
+<hr />
+User Input
+<hr />
+<input type="text" #ref1 (keyup)="(0)" /> {{ ref1.value }}
+<br />
+<input type="text" (keyup)="log($event)" /> Firing event (Keyup)
+<br />
+<input type="text" (keyup.Escape)="log($event)" /> Firing event (keyup Escape)
+<br />
+<input type="text" (blur)="log($event); anotherLog()" />Firing event (blur)
